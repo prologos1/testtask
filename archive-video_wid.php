@@ -1,0 +1,57 @@
+<?php
+get_header();
+?>
+<!-- video wid -->
+				<div class="container-fluid pageclr3">
+			<?php 
+			  $args = array(
+				'post_type' => 'video_wid',
+				'post_status' => 'publish',
+				'orderby' => 'order',
+				'order' => 'ASC' //ASC / DESC
+			  );
+
+			   query_posts($args );	
+			 ?>
+
+					<?php if (have_posts()) : ?>	
+						<?php while (have_posts()) : the_post(); ?>
+						
+						<div <?php post_class() ?> class="ml-1 mt-1 px-2" id="post-<?php the_ID(); ?>">
+							<h3 class="title"><a href="<?php the_permalink() ?>" rel="bookmark" title="Ссылка на <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
+							<div class="postdate"><img src="<?php bloginfo('template_url'); ?>/images/date.png" /> <?php the_time('F j, Y') ?> <img src="<?php bloginfo('template_url'); ?>/images/user.png" /> <?php the_author() ?> <?php if (current_user_can('edit_post', $post->ID)) { ?> <img src="<?php bloginfo('template_url'); ?>/images/edit.png" /> <?php edit_post_link('Edit', '', ''); } ?></div>
+							
+							<div class="entry">
+                                <?php if ( function_exists("has_post_thumbnail") && has_post_thumbnail() ) { the_post_thumbnail(array(200,160), array("class" => "alignleft post_thumbnail")); } ?>
+							
+  							    <?php 
+								 the_content(''); // выводит полностью запись
+								 //the_excerpt();  // сминает запись и выводит частично
+								?>
+								<i><?php the_tags(); ?></i>
+                                <div class="readmorecontent">
+									<a class="readmore" href="<?php the_permalink() ?>" rel="bookmark" title="Ссылка на <?php the_title_attribute(); ?>">Читать &raquo;</a>
+								</div>
+							</div>
+						</div><!--/post-<?php the_ID(); ?>-->
+						<br />				
+				<?php endwhile; ?>
+				<div class="navigation">
+					<?php if(function_exists('wp_pagenavi')) { wp_pagenavi(); } else { ?>
+					<div class="alignleft"><?php next_posts_link('&laquo; Older Entries') ?></div>
+					<div class="alignright"><?php previous_posts_link('Newer Entries &raquo;') ?></div>
+					<?php } ?>
+				</div>
+				<?php else : ?>
+					<h2 class="center">Не найдено</h2>
+					<p class="center">Извините, но того, что Вы ищите здесь нет.</p>
+					<?php get_search_form(); ?>
+			
+				<?php endif; ?>
+				</div>
+	<?php		
+	wp_reset_query();	
+	?>
+<?php
+get_footer();
+?>

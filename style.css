@@ -1,0 +1,113 @@
+/*
+Theme Name: nanotheme Dmitry P
+Author: Dmitry P
+Author URI: https://blog.vzakladke.net/pages/about
+Description: Bootstrap v.4
+Version: 1.0
+*/
+
+.pageclr1 {
+	background-color: #f2f3f4;
+	font-family:Tahoma, Georgia, "Times New Roman", Times, serif;color:#333;
+	font-weight:400;
+	border: 1px solid red;
+}
+.pageclr2 {
+	background-color: #ffc107;
+}
+.pageclr3 {
+	background-color: #d9d0d0;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.underhead{
+	height:30px;
+	background-color:#ddd;
+}
+.message-for-unauthorized-users {
+	padding: 4px;
+	text-align:center;
+	margin:0 auto;
+}
+/* menu */
+.menu-item {
+    display: block;
+    padding: 0.5rem 1rem;
+}
+li.menu-item>a {
+		color:#ddd;
+}
+
+/* entry-content */
+.entry-content::after {
+	clear: both;
+	content: "";
+	display: block;
+}
+.entry-content {
+	line-height: 1.5;
+}
+
+.entry-content > * {
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 1.25em;
+}
+
+.entry-content > *:first-child {
+	margin-top: 0;
+}
+
+.entry-content > *:last-child {
+	margin-bottom: 0;
+}
+
+.read-more-button-wrap {
+	margin-top: 1em;
+	text-align: center;
+}
+
+.entry-content a:hover,
+.entry-content a:focus {
+	text-decoration: none;
+}
+
+.entry-content p,
+.entry-content li {
+	line-height: 1.4;
+}
+
+.entry-content li img {
+	display: inline-block;
+}
+
+.entry-content h1,
+.entry-content h2,
+.entry-content h3,
+.entry-content h4,
+.entry-content h5,
+.entry-content h6 {
+	margin: 3.5rem auto 2rem;
+}
+
+.entry-content ul ul,
+.entry-content ol ol,
+.entry-content ul ol,
+.entry-content ol ul {
+	margin-bottom: 1rem;
+}
+
+.entry-content hr {
+	margin: 4rem auto;
+}
+
+.post-inner .entry-content > .wp-block-cover.alignwide:first-child,
+.post-inner .entry-content > .wp-block-cover.alignfull:first-child {
+	margin-top: 0;
+}
+.entry {
+	margin: 2rem auto;
+}
+
+div#footer > ul{
+	list-style: none;
+}
